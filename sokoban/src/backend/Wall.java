@@ -1,12 +1,14 @@
-/**
- * 
- */
 package backend;
 
-/**
- * @author daniel
- * 
- */
 public class Wall implements Tile {
+
+	public Wall() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public boolean isAccesible() {
+		return false;
+	}
 
 }

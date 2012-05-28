@@ -3,10 +3,6 @@
  */
 package backend;
 
-/**
- * @author daniel
- * 
- */
 public class Game {
 	public static final int MIN_HEIGHT = 5;
 	public static final int MIN_WIDTH = 5;

@@ -1,12 +1,16 @@
-/**
- * 
- */
 package backend;
 
-/**
- * @author daniel
- * 
- */
-public class BombBox extends Box {
+import java.awt.Point;
 
+public class BombBox extends Box {
+	private final int counter;
+
+	public BombBox(Point p, Color c, int time) {
+		super(p, c);
+		this.counter = time;
+	}
+
+	public int getCounter() {
+		return counter;
+	}
 }

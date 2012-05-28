@@ -3,10 +3,14 @@
  */
 package backend;
 
-/**
- * @author daniel
- * 
- */
-public class Hole extends Tile {
+public class Hole extends Floor {
 
+	public Hole() {
+		super();
+	}
+
+	@Override
+	public boolean setContent(Movable content) {
+		return content.remove();
+	}
 }

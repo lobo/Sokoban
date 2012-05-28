@@ -1,14 +1,7 @@
-/**
- * 
- */
 package parser;
 
 import java.io.File;
 
-/**
- * @author daniel
- * 
- */
 public class GameParser {
 	private final File file;
 	private int width;

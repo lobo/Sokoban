@@ -3,10 +3,20 @@
  */
 package backend;
 
+import java.awt.Point;
+
+import exceptions.PositionOutOfBoundsException;
+
 /**
- * @author daniel
+ * podemos borrar lo de llenar con Tiles vacios? No necesitamos hacerlo en TODO
+ * el board, sino que en el caso que necesitamos llenar serian los vacios(donde
+ * no haya ni Hole, ni Target) con Floors.
  * 
+ * Point.x=FILA. Point.y=COLUMNA.
+ * 
+ * @Tere.
  */
+
 public class Board {
 	private final Tile[][] content;
 	private final int height;
@@ -25,11 +35,11 @@ public class Board {
 	 * @param p
 	 * @return Tile
 	 */
-	public Tile getTile(Position p) {
+	public Tile getTile(Point p) {
 		if (!validPosition(p)) {
 			throw new PositionOutOfBoundsException();
 		}
-		return content[p.row][p.column];
+		return content[p.x][p.y];
 	}
 
 	/**
@@ -57,8 +67,8 @@ public class Board {
 	 *            the position to be checked
 	 * @return boolean
 	 */
-	public boolean validPosition(Position p) {
-		return (p.row >= 0 && p.row < height && p.column >= 0 && p.column < width);
+	public boolean validPosition(Point p) {
+		return (p.x >= 0 && p.x < height && p.y >= 0 && p.y < width);
 	}
 
 	/**

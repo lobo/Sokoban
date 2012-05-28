@@ -3,10 +3,6 @@
  */
 package backend;
 
-/**
- * @author daniel
- * 
- */
 public class Position {
 	public final int row;
 	public final int column;
