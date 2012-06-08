@@ -1,0 +1,43 @@
+10
+
+dir
+26
+https://repo.it.itba.edu.ar/svn/poo-2012-4/src
+https://repo.it.itba.edu.ar/svn/poo-2012-4
+
+
+
+2012-06-07T15:43:36.729282Z
+25
+felmarti
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+8743192a-be06-40bd-bef3-edc175e32ac9
+
+Serializacion
+dir
+
+backend
+dir
+
+exceptions
+dir
+
+frontend
+dir
+
+parser
+dir
+

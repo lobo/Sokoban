@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion
+END
+Rectangle.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/Rectangle.java
+END
+Drawable.java
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/Drawable.java
+END
+Subject.java
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/Subject.java
+END
+SubjectSerializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/SubjectSerializeDemo.java
+END
+SubjectDeserializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/SubjectDeserializeDemo.java
+END
+Person.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/Person.java
+END
+Figure.java
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/Figure.java
+END
+RectangleSerializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/RectangleSerializeDemo.java
+END
+RectangleDeserializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/RectangleDeserializeDemo.java
+END
+SerializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/SerializeDemo.java
+END
+DeserializeDemo.java
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/poo-2012-4/!svn/ver/24/src/Serializacion/DeserializeDemo.java
+END
