@@ -3,19 +3,9 @@ package frontend;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
-import javax.swing.AbstractAction;
-import javax.swing.Action;
 import javax.swing.JPanel;
-import javax.swing.KeyStroke;
-
-import exceptions.PositionOutOfBoundsException;
-
-import backend.Cardinal;
 
 /**
  * Panel que permite representar un tablero de N x M celdas. Permite colocar
@@ -34,7 +24,6 @@ public class BoardPanel extends JPanel {
 	private final int rows, columns;
 	private Color gridColor = Color.BLACK;
 	private final Image[][] cells;
-	
 
 	/**
 	 * Crea un nuevo panel con una cantidad determinada de filas y columnas. El
@@ -98,7 +87,6 @@ public class BoardPanel extends JPanel {
 			throw new IllegalArgumentException("Invalid cell.");
 		}
 	}
-	
 
 	/**
 	 * @see JPanel#paint(Graphics)

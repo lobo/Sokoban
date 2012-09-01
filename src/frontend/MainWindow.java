@@ -33,12 +33,12 @@ public class MainWindow extends JFrame {
 		Dimension size = toolkit.getScreenSize();
 		setLocation(size.width / 2 - getWidth() / 2, size.height / 2
 				- getHeight() / 2);
-		
-		swapper = new PanelSwapper(); 
-		setContentPane(swapper); 
+
+		swapper = new PanelSwapper();
+		setContentPane(swapper);
 
 		initMenu();
-		setResizable(false);
+		setResizable(true);
 
 	}
 
@@ -113,10 +113,10 @@ public class MainWindow extends JFrame {
 		help.add(item);
 	}
 
-	public static void main(String[] args) throws IOException, ClassNotFoundException {
+	public static void main(String[] args) throws IOException,
+			ClassNotFoundException {
 
 		JFrame window = new MainWindow();
 		window.setVisible(true);
 	}
 }
-

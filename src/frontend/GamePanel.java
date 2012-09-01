@@ -12,7 +12,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,17 +29,11 @@ import backend.Cardinal;
 import backend.ContentOperations;
 import backend.Game;
 import backend.Hole;
-import backend.Movable;
 import backend.SaveandLoadGame;
 import backend.Smile;
 import backend.Target;
 import backend.Tile;
 import backend.Wall;
-import exceptions.PositionOutOfBoundsException;
-import frontend.BoardPanel;
-import frontend.FrontUtils;
-import frontend.ImageUtils;
-import frontend.PanelSwapper;
 
 public class GamePanel extends JPanel {
 	private final PanelSwapper swapper;
@@ -73,30 +66,31 @@ public class GamePanel extends JPanel {
 
 	// Constructor para partidas cargadas de una guardada
 
-	public GamePanel(final PanelSwapper swapper, final Game aGame) throws ClassNotFoundException {
+	public GamePanel(final PanelSwapper swapper, final Game aGame)
+			throws ClassNotFoundException {
 		this(swapper);
 
 		this.aGame = aGame;
 		this.boardlistener = new InstanceBoardListener();
 		aGame.getBoard().setInstanceBoardListener(boardlistener);
-		
-		boardpanel = new BoardPanel(aGame.getBoard().getHeight(),
-				aGame.getBoard().getWidth(), CELL_SIZE);
+
+		boardpanel = new BoardPanel(aGame.getBoard().getHeight(), aGame
+				.getBoard().getWidth(), CELL_SIZE);
 		boardpanel.setBackground(Color.WHITE);
 		boardpanel.setGridColor(Color.BLACK);
-		
+
 		boardpanel.setFocusable(true);
 		setFocusable(true);
-		
+
 		printBoard(aGame);
 		initCellActions();
-		
+
 		levelTitle = new JLabel(aGame.getLevelname(), JLabel.CENTER);
 		initLevelTitle(levelTitle);
-		
+
 		statusBar = new JLabel("Jugador: " + aGame.getPlayerName()
 				+ ". Puntaje: " + aGame.getScore());
-		
+
 		add(boardpanel, BorderLayout.CENTER);
 		add(levelTitle, BorderLayout.NORTH);
 		add(statusBar, BorderLayout.SOUTH);
@@ -108,7 +102,7 @@ public class GamePanel extends JPanel {
 		aLabel.setForeground(Color.RED);
 		aLabel.setBorder(BorderFactory.createEtchedBorder());
 	}
-	
+
 	private void initSave(JButton aButton) {
 		aButton.setMnemonic(KeyEvent.VK_S);
 		aButton.addActionListener(new ActionListener() {
@@ -135,7 +129,7 @@ public class GamePanel extends JPanel {
 			}
 		});
 	}
-	
+
 	private void printBoard(Game aGame) {
 
 		for (int i = 0; i < aGame.getBoard().getHeight(); i++) {
@@ -143,23 +137,32 @@ public class GamePanel extends JPanel {
 
 				Tile tile = aGame.getBoard().getTile(new Point(i, j));
 
-				if(tile instanceof ContentOperations && ((ContentOperations)tile).getContent() instanceof Box){
-					Box aBox = (Box) ((ContentOperations)tile).getContent();
+				if (tile instanceof ContentOperations
+						&& ((ContentOperations) tile).getContent() instanceof Box) {
+					Box aBox = (Box) ((ContentOperations) tile).getContent();
 					Image img = null;
 					Point point = new Point(aBox.getPosition());
 					Tile auxTile = aGame.getBoard().getTile(point);
-					
-					img = ImageUtils.dye(images.get(aBox.getClass()), aBox.getColor());
-					
-					if(aBox instanceof BombBox){
-						String counter = String.valueOf(((BombBox)aBox).getCounter());
-						img = ImageUtils.colorize(ImageUtils.drawString(images.get(BombBox.class), counter, Color.WHITE),aBox.getColor());
+
+					img = ImageUtils.dye(images.get(aBox.getClass()),
+							aBox.getColor());
+
+					if (aBox instanceof BombBox) {
+						String counter = String.valueOf(((BombBox) aBox)
+								.getCounter());
+						img = ImageUtils.colorize(
+								ImageUtils.drawString(
+										images.get(BombBox.class), counter,
+										Color.WHITE), aBox.getColor());
 					}
-					if ((auxTile instanceof Target) && (aBox.getColor().equals(((Target)auxTile).getColor()))){
-						img = ImageUtils.increaseBrightness(img);	
-					}	
-					boardpanel.appendImage((int) point.getX(),(int) point.getY(), img);
-					
+					if ((auxTile instanceof Target)
+							&& (aBox.getColor().equals(((Target) auxTile)
+									.getColor()))) {
+						img = ImageUtils.increaseBrightness(img);
+					}
+					boardpanel.appendImage((int) point.getX(),
+							(int) point.getY(), img);
+
 				} else if (tile instanceof Target) {
 					boardpanel.setImage(i, j, ImageUtils.dye(
 							images.get(tile.getClass()),
@@ -169,7 +172,7 @@ public class GamePanel extends JPanel {
 				}
 			}
 		}
-		
+
 		Point smilePosition = aGame.getBoard().getSmile().getPosition();
 		boardpanel.appendImage((int) smilePosition.getX(),
 				(int) smilePosition.getY(), images.get(Smile.class));
@@ -192,9 +195,10 @@ public class GamePanel extends JPanel {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void initCellActions() {
-		ka = new KeyAdapter(){
+		ka = new KeyAdapter() {
+			@Override
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
 					aGame.getBoard().move(Cardinal.EAST);
@@ -206,15 +210,22 @@ public class GamePanel extends JPanel {
 					aGame.getBoard().move(Cardinal.SOUTH);
 				}
 				printBoard(aGame);
-				setStatusBar("Jugador: " + aGame.getPlayerName() + ". Puntaje: "
-						+ aGame.getScore());
+				setStatusBar("Jugador: " + aGame.getPlayerName()
+						+ ". Puntaje: " + aGame.getScore());
 				repaint();
 			}
-			};
+		};
 		addKeyListener(ka);
 	};
 
 	public static void setStatusBar(String text) {
 		statusBar.setText(text);
+	}
+
+	/**
+	 * @return the swapper
+	 */
+	public PanelSwapper getSwapper() {
+		return swapper;
 	}
 }
