@@ -9,5 +9,5 @@ Unluckily, the commit history has been lost and you might see some comments
 (Javadoc or not) that are in Spanish.
 
 This entire project has been made by me (Daniel Lobo), Teresa C. Di Tada and
-Felipe Martinez and is release under the terms stated in LICENSE.
+Felipe Martinez and is release under the MIT License that can be seen in LICENSE.
 
