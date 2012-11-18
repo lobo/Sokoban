@@ -1,27 +1,28 @@
 package backend;
 
 import java.io.Serializable;
+
 import exceptions.PositionOutOfBoundsException;
 
+public class Game implements Serializable {
 
-public class Game implements Serializable{
-	
 	private static final long serialVersionUID = 1L;
 	private Player player;
-	private Board board;
+	private final Board board;
 	private String levelname;
 
-	public Game(Board board, Player player, String levelname) throws PositionOutOfBoundsException {
-		
+	public Game(Board board, Player player, String levelname)
+			throws PositionOutOfBoundsException {
+
 		board.setGame(this);
-		this.board=board;
-		this.levelname=levelname;
-		this.player=player;
-	
+		this.board = board;
+		this.levelname = levelname;
+		this.player = player;
 	}
 
 	/**
 	 * Sets player.
+	 * 
 	 * @param playerName
 	 */
 	public void setPlayer(String playerName) {
@@ -46,25 +47,25 @@ public class Game implements Serializable{
 
 	/**
 	 * Gets the Player.
-	*/
+	 */
 	public Player getPlayer() {
 		return player;
 	}
-	
+
 	/**
 	 * Gets the Board.
 	 */
 	public Board getBoard() {
 		return board;
 	}
-	
+
 	/**
 	 * Gets Level's name.
 	 */
 	public String getLevelname() {
 		return levelname;
 	}
-	
+
 	/**
 	 * Sets level's name.
 	 */
